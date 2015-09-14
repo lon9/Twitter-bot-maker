@@ -3,6 +3,10 @@
 ##Description
 Twitter bot maker generate Twitter bot without coding. The bot tweets texts provided by you randomly.
 
+##Environment
+
+Python 3.4.3
+
 ##Usage
 
 0. Access to [Twitter's developer page](https://apps.twitter.com) and get Twitter's `Consumer key` and `Consumer secret`.
