@@ -9,9 +9,11 @@ Twitter bot maker generate Twitter bot without coding. The bot tweets texts prov
 
 1. Clone this repository to local
 
+
     $ git clone git@github.com:Rompei/botmaker.git
 
 2. Prepare tweets text file like [this](https://github.com/Rompei/botmaker/test.txt)
+
 
     Hello, world
     Go
@@ -31,11 +33,13 @@ Twitter bot maker generate Twitter bot without coding. The bot tweets texts prov
 
 3. Create a directory you want to generate the bot
 
+
     $ mkdir [directory-name]
 
 4. Install [Tweepy](https://github.com/tweepy/tweepy) to use Twitter API.
 
 If you use `pip` as package controll system, execute the command.
+
 
     $ pip install tweepy
 
@@ -57,17 +61,21 @@ Then, you can upload generated files to your server and set a scheduler. Here is
 
 2. Initialize Git repository
 
+
     $ git init
 
 3. Create Heroku application
+
 
     $ heroku create [project name]
 
 4. Push to Heroku
 
+
     $ push heroku master
 
 5. Set heroku shceduler
+
 
     $ heroku addons:create scheduler:standard
     $ heroku addons:open scheduler:standard
