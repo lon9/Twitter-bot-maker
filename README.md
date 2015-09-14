@@ -14,7 +14,7 @@ Python 3.4.3
 1. Clone this repository to local  
 
 ```
-    $ git clone git@github.com:Rompei/botmaker.git
+    $ git clone git@github.com:Rompei/Twitter-bot-maker.git
 ```
 2. Prepare tweets text file like [this](https://github.com/Rompei/Twitter-bot-maker/blob/master/example/test.txt)   
 ```
