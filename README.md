@@ -12,7 +12,7 @@ Twitter bot maker generate Twitter bot without coding. The bot tweets texts prov
 ```
     $ git clone git@github.com:Rompei/botmaker.git
 ```
-2. Prepare tweets text file like [this](https://github.com/Rompei/botmaker/test.txt)   
+2. Prepare tweets text file like [this](https://github.com/Rompei/Twitter-bot-maker/blob/master/example/test.txt)   
 ```
     Hello, world
     Go
@@ -29,6 +29,7 @@ Twitter bot maker generate Twitter bot without coding. The bot tweets texts prov
     Japan
     Kyoto
     Nara
+    にゃんぱすー
 ```
 
 3. Create a directory you want to generate the bot  
