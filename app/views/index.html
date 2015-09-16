@@ -1,8 +1,9 @@
 {% include "inc/header" %}
 <div class="container">
+  <h4>Twitter bot maker</h4>
 	<p>Please submit Consumer key and Cousumer secret to make Twitter bot.</p>
 	{% if isFail %}
-		<p>Failred to login.</p>
+		<p>Failred to authorize.</p>
 	{% endif %}
 	<form action="/login" method="POST" enctype="multipart/form-data">
 		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">

@@ -61,6 +61,7 @@ def makebot():
 	botMaker.makeZip(filePath)
 	dirname = os.path.basename(botMaker.getDirPath())
 	os.system('./delSession.sh')
+	os.system('./delBot.sh')
 	return template('download', url=dirname)
 
 @app.route('/delete', method='GET')
