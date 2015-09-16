@@ -1,4 +1,4 @@
 #!/bin/sh
 
 POS=`dirname $0`
-find "$POS/lock" -mtime +3 -exec rm {} \;
+find "$POS/lock/*" -mmin +60 | xargs rm -r 
