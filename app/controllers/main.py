@@ -60,13 +60,13 @@ def makebot():
 	botMaker = MakeBot(auth)
 	botMaker.makeZip(filePath)
 	dirname = os.path.basename(botMaker.getDirPath())
+	os.system('./delSession.sh')
 	return template('download', url=dirname)
 
 @app.route('/delete', method='GET')
 def deleteFiles():
 	url = request.query.url
 	os.rmdir(url)
-
 
 @app.route('/download/<filename:path>', method='GET')
 def download(filename):
