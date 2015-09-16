@@ -1,1 +1,1 @@
-web: gunicorn index:app --preload
+web: waitress-serve --port=$PORT index:app

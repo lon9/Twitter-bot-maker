@@ -38,7 +38,6 @@ def login():
 		session['consumerKey'] = consumerKey
 		session['consumerSecret'] = consumerSecret
 		session['requestToken'] = auth.request_token
-		session.save()
 	except tweepy.TweepError:
 		redirect('/?failure=True')
 	redirect(url)
