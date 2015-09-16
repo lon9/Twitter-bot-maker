@@ -57,3 +57,7 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# Tmporaly folder
+tmp/
+lock
