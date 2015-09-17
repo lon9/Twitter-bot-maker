@@ -37,7 +37,7 @@ Prepare tweets text file like [this](https://github.com/Rompei/Twitter-bot-maker
     にゃんぱすー
 ```
 
-Access to [Web page](https://botmaker.herokuapp.com) and enter Twitter's `Consumer key` and `Consumer srcret` and upload tweets text file.   
+Access to [Web page](https://botmaker.herokuapp.com) and enter Twitter's `Consumer key` and `Consumer srcret` and upload tweets text file. And then we can download our own Twitter bot.   
 I'm sorry, you will take little time to access the site due to Using Heroku.   
 
 
