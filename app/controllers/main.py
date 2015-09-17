@@ -39,7 +39,7 @@ def login():
 	dirPath = os.path.abspath(dirPath)
 	session['filePath'] = os.path.abspath(filePath)
 	try:
-		auth = tweepy.OAuthHandler(consumerKey, consumerSecret, 'https://makebot.herokuapp.com/makebot')
+		auth = tweepy.OAuthHandler(consumerKey, consumerSecret, 'https://botmaker.herokuapp.com/makebot')
 		url = auth.get_authorization_url()
 		session['consumerKey'] = consumerKey
 		session['consumerSecret'] = consumerSecret
