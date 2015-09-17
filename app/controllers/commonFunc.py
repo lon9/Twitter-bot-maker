@@ -1,5 +1,6 @@
 # -*- coding:utf-8 -*-
 
+# Generate random strings
 def getRandomStr(length, chars=None):
 	import random
 	import string

@@ -23,10 +23,14 @@ def login():
 	consumerKey = request.forms.get('consumerKey')
 	consumerSecret = request.forms.get('consumerSecret')
 	tweetsFile = request.files.get('tweetsFile')
+	
+	# Checking extention
 	name, ext = os.path.splitext(tweetsFile.filename)
 	if not ext =='.txt':
 		error(session)
 		redirect('/?failure=True')
+	
+	# Create session directory
 	dirname = common.getRandomStr(32)
 	dirPath = os.path.dirname(os.path.abspath(__file__))+"/tmp/{dirname}".format(dirname=dirname)
 	os.makedirs(dirPath)
@@ -35,7 +39,7 @@ def login():
 	dirPath = os.path.abspath(dirPath)
 	session['filePath'] = os.path.abspath(filePath)
 	try:
-		auth = tweepy.OAuthHandler(consumerKey, consumerSecret, 'http://localhost:8080/makebot')
+		auth = tweepy.OAuthHandler(consumerKey, consumerSecret, 'https://makebot.herokuapp.com/makebot')
 		url = auth.get_authorization_url()
 		session['consumerKey'] = consumerKey
 		session['consumerSecret'] = consumerSecret
@@ -57,22 +61,25 @@ def makebot():
 
 	auth = tweepy.OAuthHandler(consumerKey, consumerSecret)
 	auth.request_token = session.get('requestToken')
-	auth.get_access_token(request.query.oauth_verifier)
+	try:
+		auth.get_access_token(request.query.oauth_verifier)
+	except tweepy.TweepError:
+		error(session)
+		redirect('/?failure=True')
 
+	# Create zip file
 	from app.controllers.makebot import MakeBot
 	botMaker = MakeBot(auth)
 	botMaker.makeZip(filePath)
 	dirname = os.path.basename(botMaker.getDirPath())
 	return template('download', url=dirname)
 
-@app.route('/delete', method='GET')
-def deleteFiles():
-	url = request.query.url
-	os.rmdir(url)
 
 @app.route('/download/<filename:path>', method='GET')
 def download(filename):
 	session = request.environ.get('beaker.session')
+	
+	# Checking user
 	name, ext = os.path.splitext(filename)
 	if name != os.path.basename(os.path.dirname(session.get('filePath', None))):
 		error(session)
