@@ -1,0 +1,24 @@
+{% include "inc/header" %}
+<div class="container">
+  <h4>Twitter bot maker</h4>
+	<p>Please submit Consumer key and Cousumer secret to make Twitter bot.</p>
+	{% if isFail %}
+		<p>Failred to authorize.</p>
+	{% endif %}
+	<form action="/login" method="POST" enctype="multipart/form-data">
+		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+			<input class="mdl-textfield__input" type="text" name="consumerKey" id="consumerKey">
+			<label class="mdl-textfield__label " for="consumerKey">Consumer key</label>
+		</div>
+		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+			<input class="mdl-textfield__input" type="text" name="consumerSecret" id="consumerSecret">
+			<label class="mdl-textfield__label" for="consumerSecret">Consumer secret</label>
+		</div>
+		<div>
+			Please upload tweet text file: <input type="file" name="tweetsFile">
+		</div>
+		<br>
+		<button type="submit" id="twitter-brand" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Authorize Twitter</button>
+	</form>
+</div>
+{% include "inc/footer" %}

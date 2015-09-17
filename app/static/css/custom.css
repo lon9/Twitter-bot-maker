@@ -1,0 +1,19 @@
+html{
+  font-family: "Roboto", "Helvetica","Arial",sans-serif;
+}
+
+body{
+  width:100%;
+  margin-top:50px;
+  font-family: "Roboto", "Helvetica","Arial",sans-serif;
+}
+
+.container{
+  width:80%;
+  margin: 0 auto;
+}
+
+#twitter-brand{
+  background-color:#55acee;
+  color:white;
+}

@@ -9,14 +9,15 @@ Python 3.4.3
 
 ##Usage
 
-0. Access to [Twitter's developer page](https://apps.twitter.com) and get Twitter's `Consumer key` and `Consumer secret`.
+You can get Twitter bot through [web page](https://botmaker.herokuapp.com) or locally with this app. I suggest using web page because you don't have to install `Tweepy` as your local library.
 
-1. Clone this repository to local  
+###Use web
 
-```
-    $ git clone git@github.com:Rompei/Twitter-bot-maker.git
-```
-2. Prepare tweets text file like [this](https://github.com/Rompei/Twitter-bot-maker/blob/master/example/test.txt)   
+
+Access to [Twitter's developer page](https://apps.twitter.com) and get Twitter's `Consumer key` and `Consumer secret`.   
+
+Prepare tweets text file like [this](https://github.com/Rompei/Twitter-bot-maker/blob/master/example/test.txt)   
+
 ```
     Hello, world
     Go
@@ -36,51 +37,99 @@ Python 3.4.3
     にゃんぱすー
 ```
 
-3. Create a directory you want to generate the bot  
+Access to [Web page](https://botmaker.herokuapp.com) and enter Twitter's `Consumer key` and `Consumer srcret` and upload tweets text file. And then we can download our own Twitter bot.   
+I'm sorry, you will take little time to access the site due to Using Heroku.   
+
+
+###local use
+
+
+Access to [Twitter's developer page](https://apps.twitter.com) and get Twitter's `Consumer key` and `Consumer secret`.   
+
+Clone this repository to local     
+
+```
+    $ git clone git@github.com:Rompei/Twitter-bot-maker.git
+```
+
+Prepare tweets text file like [this](https://github.com/Rompei/Twitter-bot-maker/blob/master/example/test.txt)   
+
+```
+    Hello, world
+    Go
+    Python
+    Ruby
+    C
+    C++
+    Java
+    JavaScript
+    ShellScript
+    Tokyo
+    Australia
+    United Status
+    Japan
+    Kyoto
+    Nara
+    にゃんぱすー
+```
+
+Create a directory you want to generate the bot  
+
 ```
     $ mkdir [directory-name]
 ```
-4. Install [Tweepy](https://github.com/tweepy/tweepy) to use Twitter API.  
+Install [Tweepy](https://github.com/tweepy/tweepy) to use Twitter API.  
 
 If you use `pip` as package controll system, execute the command.  
 
 ```
     $ pip install tweepy
 ```
-5. Execute `python makebot.py [path-to-the-text-file-written-tweets] [path-to-the-directory(created at procedure 3)]`
+Execute `python makebot.py [path-to-the-text-file-written-tweets] [path-to-the-directory(created at procedure 3)]`   
 
-6. Enter `Consumer key` and `Consumer secret`
+Enter `Consumer key` and `Consumer secret`   
 
-7. Then give permit for this app.
+Then give permit for this app.   
 
-8. Back to console and input validation code.
+Back to console and input validation code.   
 
-9. Files will be generated
+Files will be generated   
 
-That's it.
+That's it.   
 
-Then, you can upload generated files to your server and set a scheduler. Here is an example with Heroku.
+Then, you can upload generated files to your server and set a scheduler. Here is an example with Heroku.   
 
-1. Move to the directory named "bot" generated at procedure 5
+###Deploy to Heroku
 
-2. Initialize Git repository  
+
+Move to the directory named "bot" generated at procedure 5   
+
+Initialize Git repository   
+
 ```
     $ git init
 ```
-3. Create Heroku application  
+
+Create Heroku application  
+
 ```
     $ heroku create [project name]
 ```
-4. Push to Heroku  
+
+Push to Heroku  
+
 ```
     $ push heroku master
 ```
-5. Set heroku shceduler  
+
+Set heroku shceduler  
+
 ```
     $ heroku addons:create scheduler:standard
     $ heroku addons:open scheduler:standard
 ```
-6. Your browser will be opened, then you can set the time to tweet and enter command `python task.py`
+
+Your browser will be opened, then you can set the time to tweet and enter command `python task.py`   
 
 ##License
 
