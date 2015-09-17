@@ -74,7 +74,6 @@ def deleteFiles():
 def download(filename):
 	session = request.environ.get('beaker.session')
 	name, ext = os.path.splitext(filename)
-	print(os.path.dirname(session.get('filePath', None)))
 	if name != os.path.basename(os.path.dirname(session.get('filePath', None))):
 		error(session)
 		redirect('/?failure=True')
