@@ -17,13 +17,15 @@ def index():
 @app.route('/login', method='POST')
 def login():
 	session = request.environ.get('beaker.session')
-	if not request.forms.get('consumerKey') or not request.forms.get('consumerSecret'):
+	if not request.forms.get('consumerKey') or not request.forms.get('consumerSecret') or not request.files.get('tweetsFile'):
+		error(session)
 		redirect('/?failure=True')
 	consumerKey = request.forms.get('consumerKey')
 	consumerSecret = request.forms.get('consumerSecret')
 	tweetsFile = request.files.get('tweetsFile')
 	name, ext = os.path.splitext(tweetsFile.filename)
 	if not ext =='.txt':
+		error(session)
 		redirect('/?failure=True')
 	dirname = common.getRandomStr(32)
 	dirPath = os.path.dirname(os.path.abspath(__file__))+"/tmp/{dirname}".format(dirname=dirname)
@@ -39,6 +41,7 @@ def login():
 		session['consumerSecret'] = consumerSecret
 		session['requestToken'] = auth.request_token
 	except tweepy.TweepError:
+		error(session)
 		redirect('/?failure=True')
 	redirect(url)
 
@@ -49,19 +52,17 @@ def makebot():
 	consumerSecret = session.get('consumerSecret', None)
 	filePath = session.get('filePath', None)
 	if not consumerKey and not consumerSecret:
+		error(session)
 		redirect('/?failure=True')
 
 	auth = tweepy.OAuthHandler(consumerKey, consumerSecret)
 	auth.request_token = session.get('requestToken')
-	session.delete()
 	auth.get_access_token(request.query.oauth_verifier)
 
 	from app.controllers.makebot import MakeBot
 	botMaker = MakeBot(auth)
 	botMaker.makeZip(filePath)
 	dirname = os.path.basename(botMaker.getDirPath())
-	os.system('./delSession.sh')
-	os.system('./delBot.sh')
 	return template('download', url=dirname)
 
 @app.route('/delete', method='GET')
@@ -71,6 +72,18 @@ def deleteFiles():
 
 @app.route('/download/<filename:path>', method='GET')
 def download(filename):
+	session = request.environ.get('beaker.session')
 	name, ext = os.path.splitext(filename)
+	print(os.path.dirname(session.get('filePath', None)))
+	if name != os.path.basename(os.path.dirname(session.get('filePath', None))):
+		error(session)
+		redirect('/?failure=True')
 	root = os.path.dirname(os.path.abspath(__file__))+'/tmp/'+name+'/'
+	error(session)
 	return static_file(filename, root=root, download='bot.zip')
+
+def error(session):
+	session.delete()
+	os.system('./delSession.sh')
+	os.system('./delBot.sh')
+	
