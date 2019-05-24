@@ -1,17 +1,17 @@
-#Twitter bot maker
+# Twitter bot maker
 
-##Description
+## Description
 Twitter bot maker generate Twitter bot without coding. The bot tweets texts provided by you randomly.
 
-##Environment
+## Environment
 
 Python 3.4.3
 
-##Usage
+## Usage
 
 You can get Twitter bot through [web page](https://botmaker.herokuapp.com) or locally with this app. I suggest using web page because you don't have to install `Tweepy` as your local library.
 
-###Use web
+### Use web
 
 
 Access to [Twitter's developer page](https://apps.twitter.com) and get Twitter's `Consumer key` and `Consumer secret`.   
@@ -41,7 +41,7 @@ Access to [Web page](https://botmaker.herokuapp.com) and enter Twitter's `Consum
 I'm sorry, you will take little time to access the site due to Using Heroku.   
 
 
-###local use
+### local use
 
 
 Access to [Twitter's developer page](https://apps.twitter.com) and get Twitter's `Consumer key` and `Consumer secret`.   
@@ -99,7 +99,7 @@ That's it.
 
 Then, you can upload generated files to your server and set a scheduler. Here is an example with Heroku.   
 
-###Deploy to Heroku
+### Deploy to Heroku
 
 
 Move to the directory named "bot" generated at procedure 5   
@@ -131,7 +131,7 @@ Set heroku shceduler
 
 Your browser will be opened, then you can set the time to tweet and enter command `python task.py`   
 
-##License
+## License
 
     The MIT License (MIT)
 
