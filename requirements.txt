@@ -1,9 +1,9 @@
 Beaker==1.7.0
 bottle==0.12.8
-Jinja2==2.10
+Jinja2>=2.10.0
 MarkupSafe==0.23
 oauthlib==1.0.3
-requests==1.0.4
+requests>=2.20.0
 requests-oauthlib==1.1.0
 six==1.9.0
 tweepy==3.4.0
