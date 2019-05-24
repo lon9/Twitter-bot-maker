@@ -61,3 +61,4 @@ target/
 # Tmporaly folder
 tmp/
 lock
+venv
